@@ -14,6 +14,6 @@
     </body>
     <script>
         $('#btn').on('click',function(){
-        alert('제이쿼리가 작동');});
+        alert('제이쿼리가 작동!!!!!');});
     </script>
 </html>
