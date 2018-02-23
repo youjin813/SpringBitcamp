@@ -22,19 +22,19 @@ public class HomeController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(Locale locale, Model model) {
         logger.info("Welcome home! The client locale is {}.", locale);
-        
+  
         model.addAttribute("serverTime", new SimpleDateFormat("yyyy년 MM월 dd일 hh:mm")
                 .format(new Date()));
         model.addAttribute("context",(String) contextFactory.create());
         return "index";
     }
-    @RequestMapping(value = "home", method = RequestMethod.GET)
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String home(Model model) {
         logger.info(" Move To {} ", "main/home");
         model.addAttribute("context",(String) contextFactory.create());
         model.addAttribute("js", contextFactory.path("js"));
         model.addAttribute("css", contextFactory.path("css"));
         model.addAttribute("img", contextFactory.path("img"));
-        return "main/home";
-    }
+        return "public:main/home.tiles";
+    }       
 }

@@ -1,38 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../common/header.jsp"%>
-<%@ include file="../common/nav.jsp"%>
-<h1>마이페이지</h1>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>마이페이지</title>
+	<script src="${js}/jquery-3.3.1.min.js"></script>
+</head>
+<body>
 <article>
 <form name="change_pass" id="change_pass" action="${ctx}/user.do">
 	<table id="mypage_table">
 		<tr>
-			<td rowspan="5"><img src="${ctx}/resources/img/profile.png" /></td>
+			<td rowspan="5"><img src="" /></td>
 			<td class="column">ID</td>
-			<td>${sessionScope.user.id}</td>
+			<td></td>
 			<td class="column">PW</td>
-			<td>${sessionScope.user.pass}</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td class="column">NAME</td>
-			<td>${sessionScope.user.name}</td>
+			<td></td>
 			<td class="column">GENDER</td>
-			<td>${sessionScope.user.ssn}</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td class="column">BIRTHDAY</td>
-			<td>${sessionScope.user.ssn}</td>
+			<td></td>
 			<td class="column">PHONE</td>
-			<td>${sessionScope.user.phone}</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td class="column">EMAIL</td>
-			<td>${sessionScope.user.email}</td>
+			<td></td>
 			<td class="column">ADDRESS</td>
-			<td>${sessionScope.user.addr}</td>
+			<td></td>
 		</tr>
 			<tr>
 			<td class="column">ACCOUNT</td>
-			<td>${sessionScope.account.account_num}</td>
+			<td></td>
 			<td class="column"></td>
 			<td></td>
 		</tr>
@@ -44,26 +49,14 @@
 </form>	
 		<button id="delete_btn" name ="delete_btn" style="width: 200px">탈퇴</button> 
 		<button id="logout_btn" name ="logout_btn" style="width: 200px">로그아웃</button> 
+		<button id="nav_btn">네비 바 이동</button>
 	</article>
-	
-<%@ include file="../common/footer.jsp"%>
+</body>
 
 <script>
-	document.querySelector('#pass_update_btn').addEventListener('click',
-			function() {
-			alert('비밀번호를 변경하시겠습니까?')	
-			document.querySelector('#change_pass').submit();
-			},false);
-	
-	document.querySelector('#delete_btn').addEventListener('click',
-			function(){
-			alert('탈퇴하시겠습니까?')
-			location.href="${ctx}/user.do?cmd=delete";
-			},false);
-	
-	document.querySelector('#logout_btn').addEventListener('click',
-			function(){
-			alert('로그아웃하시겠습니까')
-			location.href="${ctx}/user.do";
-			},false);
+	$('#nav_btn').on('click',function(){
+		location.href= "${context}/nav";
+	});	
+
 </script>
+</html>
