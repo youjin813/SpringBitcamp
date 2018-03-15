@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   <mapper namespace="com.bitcamp.web.mapperImpl.TxMapperImpl">
+  <insert id="insert" parameterType="cmd">
+        INSERT INTO Tx VALUES(
+        #{tx.txKey},#{tx.id},<choose>
+       <when test="tx.count == null">
+           '1'
+       </when>
+       <otherwise>
+           #{tx.count}
+       </otherwise>
+   </choose>,
+<choose>
+       <when test="tx.total == null">
+           '1'
+       </when>
+       <otherwise>
+           #{tx.total}
+       </otherwise>
+   </choose>,sysdate,
+   #{tx.telecome},#{tx.phoneNum}
+       )
+    </insert>
+  </mapper>
+  

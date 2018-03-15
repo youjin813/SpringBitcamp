@@ -13,13 +13,5 @@ import com.bitcamp.web.factory.ContextFactory;
 @Controller
 public class AuthController {
 	private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
-	@Autowired ContextFactory contextFactory;
-	@RequestMapping("/login") 
-	public String login(Model model) {
-		model.addAttribute("context",(String) contextFactory.create());
-		model.addAttribute("js", contextFactory.path("js"));
-	    logger.info(" AuthController login()  {}","user/login");
-	    return "user/login";    	
-	    }
 
 }

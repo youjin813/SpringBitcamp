@@ -1,25 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<body>
-<%@ include file="../common/header.jsp"%>
-<%@ include file="../common/nav.jsp"%>
- <header>
- <h1>회원 가입</h1>
- </header>
- <section>
- <article>
- <form name="join_form" action="${ctx}/user.do"> 
-	<table>
+<style>
+    .table {
+ width: 600px; margin-top:150px; text-align: center;
+    }
+</style>
+	<table class="table">
 		<tr>	
 			<td>아이디</td>
 			<td >
-				<input name="id" id="join_id" type="text"/>
+				<input name="id" id="id" type="text"/>
 				<button id="check_dupl_btn" name="check_dupl_btn">중복 확인</button>
 			</td>
 		</tr>
 		<tr>
 			<td >비밀번호</td>
 			<td>
-				<input name="pass" type="text" />
+				<input name="pass" id="pass" type="text" />
 			</td>
 		</tr>
 		<tr>
@@ -32,7 +28,7 @@
 		<tr>
 			<td>이름</td>			
 			<td>
-				<input name="name" type="text" />
+				<input id="name" name="name" type="text" />
 			</td>
 		</tr>
 		<tr>
@@ -87,18 +83,15 @@
 			</td>
 		</tr>
 	</table>
-</form>
-</article>	
-</section>
-<%@ include file="../common/footer.jsp"%>
-</body>
-<script>
-	document.querySelector('#join_confirm_btn').addEventListener('click',
-		function(){
-		alert("회원가입하시겠습니까");
-		document.querySelector('#join_form').submit;
-		},false);
 
-	
+<script>
+$('#join_confirm_btn').on('click',function(){
+	alert('회원가입 하시겠습니까?');
+	var id = $('#id').val();
+	var name = $('#name').val();
+	var pass = $('#pass').val();
+	location.href = "${path.context}/join/"+id+"/"+pass+"/"+name;
+
+});
+//아이디 이름 비번
 </script>
-</html>

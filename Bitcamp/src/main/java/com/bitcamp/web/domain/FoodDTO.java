@@ -1,15 +1,12 @@
 package com.bitcamp.web.domain;
 
 
+import org.springframework.stereotype.Component;
+
 import lombok.Data;
 
 @Data
+@Component
 public class FoodDTO {
-	private String foodSeq,menu,price,count,id;
-
-	@Override
-	public String toString() {
-		return "메뉴[상품명=" + menu + ", 가격=" + price + "원, 수량=" + count + "]";
-	}
-	
+	private String foodSeq,menu,price;	
 }
